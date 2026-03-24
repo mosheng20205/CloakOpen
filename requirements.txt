@@ -1,0 +1,2 @@
+# 依赖：根目录 cloak_api_example.py（完整 API 示例）
+requests>=2.28.0

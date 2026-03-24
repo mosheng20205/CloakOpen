@@ -1,0 +1,16 @@
+# .NET
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+
+# Go
+*.exe
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Java
+*.class
