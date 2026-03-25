@@ -15,6 +15,29 @@
 
 完整 Python 参考实现见本仓库根目录：`cloak_api_example.py`（与 bitfbro 主项目 `docs/ApiDemo/cloak_api_example.py` 同步复制，覆盖分组/代理/窗口/批量等接口示例）。安装依赖：`pip install -r requirements.txt`，再运行 `python cloak_api_example.py`（可加 `--cleanup`）。
 
+## skill/ 目录（CDP 自动化技能与参考文档）
+
+`skill/` 下放的是面向 **AI 编码助手（如 Cursor、Claude Code）** 的 **Skill 包**，也可作为普通文档阅读；与根目录 `demos/` 互补：`demos/` 侧重各语言 **最小 HTTP 调用**，`skill/` 侧重 **CDP 自动化、本地 API 与 OpenAPI 对齐说明、工作流与排错**。
+
+### 用途
+
+- 指导智能体：在已启动 Cloak 的前提下，通过 **`POST http://127.0.0.1:54381`** 获取窗口列表与调试端口，再结合 **Chrome DevTools Protocol** 或 **Chrome DevTools MCP** 做导航、点击、填表、截图、执行 JS 等。
+- 覆盖 **单窗口与批量群控**、代理列表/检测、以及比特风格接口与 **Swagger**（`http://127.0.0.1:54381/swagger-ui`）的字段约定说明。
+
+### 文件说明
+
+| 文件 | 内容 |
+|------|------|
+| `skill/SKILL.md` | 主入口：YAML 元数据、快速开始、Cloak HTTP API 速查、MCP 工具表、常用场景与最佳实践 |
+| `skill/API_REFERENCE.md` | HTTP 与 CDP 相关端点、请求/响应示例；并注明以本机 **OpenAPI / Swagger** 为准 |
+| `skill/WORKFLOWS.md` | 分场景步骤：单浏览器操作、自动登录、批量打开、代理配置、AI 对话接口等 |
+| `skill/TROUBLESHOOTING.md` | 无法连 API、CDP、元素定位、批量与性能等问题的排查思路 |
+
+### 使用方式
+
+- **当文档读**：直接在仓库中打开上述 Markdown。
+- **当 Cursor / Claude Skill 用**：将 `skill/` 整目录复制到对应客户端要求的 **skills 目录**（或打包为 zip 后按该工具说明导入）；主文件为 `SKILL.md`（frontmatter 中含 `name`、`description`、触发词等）。
+
 ## 多语言示例
 
 | 语言 | 路径 | 运行方式 |
